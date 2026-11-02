@@ -1,0 +1,216 @@
+CUID SYNC EXECUTION GUIDE
+=========================
+
+Run all commands from the project folder:
+
+    /Users/balramsl/Documents/Latest Development/cuid_sync_scripts
+
+Each job uses the .env file inside its own folder. Do not run the scripts
+from a different folder.
+
+
+1. BEFORE YOU START
+-------------------
+
+Check which jobs are on, and the last result of each:
+
+    python run_all.py --list
+
+All 18 jobs start as enabled. Vendor Master runs after CoApplicant and Guarantor.
+
+The gap between jobs is 20 seconds. Change it for one run with --interval.
+Example for 2 minutes:
+
+    python run_all.py --interval 120
+
+To start the next job immediately:
+
+    python run_all.py --interval 0
+
+
+2. TURN JOBS ON OR OFF
+----------------------
+
+These commands only update jobs.json. They do not start the sync.
+
+One job:
+
+    python run_all.py --disable posidex
+    python run_all.py --enable posidex
+
+Two or more jobs (comma, no spaces required):
+
+    python run_all.py --disable posidex,sme_los,vf_leap
+    python run_all.py --enable posidex,sme_los,vf_leap
+
+Or repeat the flag:
+
+    python run_all.py --disable posidex --disable sme_los
+
+You can also open jobs.json and set "enabled" to true or false.
+
+Confirm before the run:
+
+    python run_all.py --list
+
+Disabled jobs are skipped by a full run and by --resume.
+
+
+3. RUN IN THREE BATCHES
+-----------------------
+
+Run batch 1 first, then batch 2, then batch 3.
+Each script runs only the jobs in that batch, in the order below.
+The wait between jobs is 20 seconds.
+
+    ./run_batch1.sh
+    ./run_batch2.sh
+    ./run_batch3.sh
+
+120 seconds between jobs in that batch:
+
+    ./run_batch1.sh --interval 120
+
+Batch 1
+    1. posidex
+    2. poswaiver
+    3. baz_vendor
+    4. chola_hrms
+
+Batch 2
+    1. dealer_vf
+    2. hl_agent
+    3. lap_agent
+    4. vf_leap
+
+Batch 3 (Vendor Master runs after CoApplicant and Guarantor)
+    1. cd_samsung_los
+    2. csel_d2c
+    3. csel_zoho
+    4. gold_loan
+    5. hl_falcon
+    6. lap_los
+    7. sbpl_los
+    8. sme_los
+    9. coapplicant_guarantor
+    10. vendor_master
+
+Same runs without the shell scripts:
+
+    python run_all.py --only posidex,poswaiver,baz_vendor,chola_hrms
+    python run_all.py --only dealer_vf,hl_agent,lap_agent,vf_leap
+    python run_all.py --only cd_samsung_los,csel_d2c,csel_zoho,gold_loan,hl_falcon,lap_los,sbpl_los,sme_los,coapplicant_guarantor,vendor_master
+
+--only follows the order of the ids you type.
+If one job in a batch fails, it is recorded and the later jobs in that batch still run.
+
+4. FULL RUN OF EVERY ENABLED JOB
+--------------------------------
+
+    python run_all.py
+
+What happens:
+
+- Enabled jobs run one after another, in the order in section 8.
+- Each script starts inside its own folder.
+- If one job fails, it is recorded and the remaining jobs still run.
+- Screen output is also saved to logs/<job_id>.log
+- The result of each job is saved to run_state.json
+
+
+5. IF ONE JOB FAILS
+-------------------
+
+1) Note the failed id from the summary, or run:
+
+    python run_all.py --list
+
+2) Fix that job, then run it alone. This runs it even if it is disabled:
+
+    python run_all.py --only posidex
+
+Several jobs:
+
+    python run_all.py --only posidex,sme_los
+
+3) Continue the rest. Jobs that already succeeded are skipped.
+   Failed jobs and jobs that were stopped halfway run again.
+   Disabled jobs stay skipped.
+
+    python run_all.py --resume
+
+
+6. START OVER
+-------------
+
+Clear the saved results. This does not start the sync.
+
+    python run_all.py --reset
+
+Then run again:
+
+    python run_all.py
+
+
+7. WHERE TO LOOK AFTER A RUN
+----------------------------
+
+    python run_all.py --list     status of every job
+    logs/<job_id>.log            output of that job's latest run
+    run_state.json               exit code and start/finish time
+
+Status values:
+
+    success     finished with exit code 0
+    failed      finished with an error, or was interrupted
+    running     started and did not finish (treat as failed; --resume will rerun it)
+    -           not run yet in this state file
+
+
+8. JOB ORDER
+------------
+
+#   id                      name                         folder / script
+1   baz_vendor              BAZ Vendor                   BAZ Vendor - MSSQL to CH - Prod - Completed / BAZ_Vendor - Complete.py
+2   cd_samsung_los          CD Samsung LOS               CD_SAMSUNG_LOS - Prod - Completed / CD_SAMSUNG_LOS_complete.py
+3   csel_d2c                CSEL D2C                     CSEL_D2C_LOS - Prod - Completed / CSEL_D2C_Complete.py
+4   csel_zoho               CSEL Zoho                    CSEL_ZOHO_LOS - Prod - Completed / CSEL_ZOHO_LOS_complete.py
+5   chola_hrms              Chola HRMS                   Chola_HRMS_Employee - Prod - Completed / chola_hrms_employee.py
+6   dealer_vf               Dealer VF                    Dealer_VF- PROD- Completed / Dealer VF_complete.py
+7   gold_loan               Gold Loan                    GL_LOS - Created Date - PROD - Completed / Gold_loan_complete.py
+8   hl_agent                HL Agent                     HL_AGENT - PROD - Completed / HL_Agent_complete.py
+9   hl_falcon               HL Falcon                    HL_FALCON_THEMEPRO_LOS - Completed / HL_FALCON_THEMEPRO_LOS_complete.py
+10  lap_agent               LAP Agent                    LAP_AGENT - PROD - Completed / LAP_Agent_complete.py
+11  lap_los                 LAP LOS                      LAP_LOS - PROD - Completed / LAP_LOS_complete.py
+12  posidex                 Posidex                      Posidex - Postgres to CH Python - PROD - Completed / posidex_complete_script.py
+13  poswaiver               Poswaiver                    Poswaiver - CH to CH Python - PROD - Completed / poswaiver_complete_script.py
+14  sbpl_los                SBPL LOS                     SBPL_LOS - PROD - Completed / SBPL_LOS_complete.py
+15  sme_los                 SME LOS                      SME_LOS - PROD - Completed / SME_LOS_complete.py
+16  vf_leap                 VF LEAP                      VF_LEAP_LOS - Latest - PROD - Completed / VF_LEAP_LOS_Latest_complete.py
+17  coapplicant_guarantor   CoApplicant and Guarantor    CoApplicant and Guarantor - Prod - Completed / coapplicant and guarantor_cuid.py
+18  vendor_master           Vendor Master                Vendor Master Table - PROD - Completed / Vendor Master Table.py
+
+Not included in the batch:
+
+- Dealer Funding
+- Channel Partner
+- valkey/
+- Poswaiver cuid_service.py
+- VF LEAP valkey_set_value.py and valkey_update.py
+
+
+9. COMMAND SUMMARY
+------------------
+
+    ./run_batch1.sh                           posidex, poswaiver, baz_vendor, chola_hrms
+    ./run_batch2.sh                           dealer_vf, hl_agent, lap_agent, vf_leap
+    ./run_batch3.sh                           remaining jobs, vendor master after coapplicant
+    ./run_batch1.sh --interval 120            same batch, 120 seconds between jobs
+    python run_all.py                         run every enabled job
+    python run_all.py --interval 120          120 seconds between jobs
+    python run_all.py --list                  show order, enabled, last status
+    python run_all.py --disable id1,id2       turn jobs off
+    python run_all.py --enable id1,id2        turn jobs on
+    python run_all.py --only id               rerun one job
+    python run_all.py --resume                skip successes, run the rest
+    python run_all.py --reset                 clear run_state.json

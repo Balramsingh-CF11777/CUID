@@ -1,0 +1,131 @@
+{
+  "interval_seconds": 20,
+  "jobs": [
+    {
+      "id": "baz_vendor",
+      "name": "BAZ Vendor",
+      "folder": "BAZ Vendor - MSSQL to CH - Prod - Completed",
+      "script": "BAZ_Vendor - Complete.py",
+      "enabled": true
+    },
+    {
+      "id": "cd_samsung_los",
+      "name": "CD Samsung LOS",
+      "folder": "CD_SAMSUNG_LOS - Prod - Completed",
+      "script": "CD_SAMSUNG_LOS_complete.py",
+      "enabled": true
+    },
+    {
+      "id": "csel_d2c",
+      "name": "CSEL D2C",
+      "folder": "CSEL_D2C_LOS - Prod - Completed",
+      "script": "CSEL_D2C_Complete.py",
+      "enabled": true
+    },
+    {
+      "id": "csel_zoho",
+      "name": "CSEL Zoho",
+      "folder": "CSEL_ZOHO_LOS - Prod - Completed",
+      "script": "CSEL_ZOHO_LOS_complete.py",
+      "enabled": true
+    },
+    {
+      "id": "chola_hrms",
+      "name": "Chola HRMS",
+      "folder": "Chola_HRMS_Employee - Prod - Completed",
+      "script": "chola_hrms_employee.py",
+      "enabled": true
+    },
+    {
+      "id": "dealer_vf",
+      "name": "Dealer VF",
+      "folder": "Dealer_VF- PROD- Completed",
+      "script": "Dealer VF_complete.py",
+      "enabled": true
+    },
+    {
+      "id": "gold_loan",
+      "name": "Gold Loan",
+      "folder": "GL_LOS - Created Date - PROD - Completed",
+      "script": "Gold_loan_complete.py",
+      "enabled": true
+    },
+    {
+      "id": "hl_agent",
+      "name": "HL Agent",
+      "folder": "HL_AGENT - PROD - Completed",
+      "script": "HL_Agent_complete.py",
+      "enabled": true
+    },
+    {
+      "id": "hl_falcon",
+      "name": "HL Falcon",
+      "folder": "HL_FALCON_THEMEPRO_LOS - Completed",
+      "script": "HL_FALCON_THEMEPRO_LOS_complete.py",
+      "enabled": true
+    },
+    {
+      "id": "lap_agent",
+      "name": "LAP Agent",
+      "folder": "LAP_AGENT - PROD - Completed",
+      "script": "LAP_Agent_complete.py",
+      "enabled": true
+    },
+    {
+      "id": "lap_los",
+      "name": "LAP LOS",
+      "folder": "LAP_LOS - PROD - Completed",
+      "script": "LAP_LOS_complete.py",
+      "enabled": true
+    },
+    {
+      "id": "posidex",
+      "name": "Posidex",
+      "folder": "Posidex - Postgres to CH Python - PROD - Completed",
+      "script": "posidex_complete_script.py",
+      "enabled": true
+    },
+    {
+      "id": "poswaiver",
+      "name": "Poswaiver",
+      "folder": "Poswaiver - CH to CH Python - PROD - Completed",
+      "script": "poswaiver_complete_script.py",
+      "enabled": true
+    },
+    {
+      "id": "sbpl_los",
+      "name": "SBPL LOS",
+      "folder": "SBPL_LOS - PROD - Completed",
+      "script": "SBPL_LOS_complete.py",
+      "enabled": true
+    },
+    {
+      "id": "sme_los",
+      "name": "SME LOS",
+      "folder": "SME_LOS - PROD - Completed",
+      "script": "SME_LOS_complete.py",
+      "enabled": true
+    },
+    {
+      "id": "vf_leap",
+      "name": "VF LEAP",
+      "folder": "VF_LEAP_LOS - Latest - PROD - Completed",
+      "script": "VF_LEAP_LOS_Latest_complete.py",
+      "enabled": true
+    },
+    {
+      "id": "coapplicant_guarantor",
+      "name": "CoApplicant and Guarantor",
+      "folder": "CoApplicant and Guarantor - Prod - Completed",
+      "script": "coapplicant and guarantor_cuid.py",
+      "enabled": true
+    },
+    {
+      "id": "vendor_master",
+      "name": "Vendor Master",
+      "folder": "Vendor Master Table - PROD - Completed",
+      "script": "Vendor Master Table.py",
+      "enabled": true
+    }
+  ]
+}

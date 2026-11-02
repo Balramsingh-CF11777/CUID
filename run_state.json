@@ -1,0 +1,148 @@
+{
+  "jobs": {
+    "posidex": {
+      "name": "Posidex",
+      "status": "failed",
+      "exit_code": null,
+      "started_at": "2026-11-01T07:47:10+05:30",
+      "finished_at": "2026-11-01T07:47:11+05:30",
+      "log": "logs/posidex.log"
+    },
+    "poswaiver": {
+      "name": "Poswaiver",
+      "status": "success",
+      "exit_code": 0,
+      "started_at": "2026-10-31T12:05:32+05:30",
+      "finished_at": "2026-10-31T12:09:29+05:30",
+      "log": "logs/poswaiver.log"
+    },
+    "baz_vendor": {
+      "name": "BAZ Vendor",
+      "status": "success",
+      "exit_code": 0,
+      "started_at": "2026-10-31T12:09:49+05:30",
+      "finished_at": "2026-10-31T12:10:06+05:30",
+      "log": "logs/baz_vendor.log"
+    },
+    "chola_hrms": {
+      "name": "Chola HRMS",
+      "status": "success",
+      "exit_code": 0,
+      "started_at": "2026-10-31T12:10:26+05:30",
+      "finished_at": "2026-10-31T12:10:44+05:30",
+      "log": "logs/chola_hrms.log"
+    },
+    "dealer_vf": {
+      "name": "Dealer VF",
+      "status": "success",
+      "exit_code": 0,
+      "started_at": "2026-10-31T12:15:02+05:30",
+      "finished_at": "2026-10-31T12:18:37+05:30",
+      "log": "logs/dealer_vf.log"
+    },
+    "hl_agent": {
+      "name": "HL Agent",
+      "status": "success",
+      "exit_code": 0,
+      "started_at": "2026-10-31T12:18:57+05:30",
+      "finished_at": "2026-10-31T12:19:09+05:30",
+      "log": "logs/hl_agent.log"
+    },
+    "lap_agent": {
+      "name": "LAP Agent",
+      "status": "success",
+      "exit_code": 0,
+      "started_at": "2026-10-31T12:19:29+05:30",
+      "finished_at": "2026-10-31T12:19:40+05:30",
+      "log": "logs/lap_agent.log"
+    },
+    "vf_leap": {
+      "name": "VF LEAP",
+      "status": "success",
+      "exit_code": 0,
+      "started_at": "2026-10-31T12:20:00+05:30",
+      "finished_at": "2026-10-31T12:26:49+05:30",
+      "log": "logs/vf_leap.log"
+    },
+    "cd_samsung_los": {
+      "name": "CD Samsung LOS",
+      "status": "success",
+      "exit_code": 0,
+      "started_at": "2026-10-30T11:39:46+05:30",
+      "finished_at": "2026-10-30T11:50:31+05:30",
+      "log": "logs/cd_samsung_los.log"
+    },
+    "csel_d2c": {
+      "name": "CSEL D2C",
+      "status": "success",
+      "exit_code": 0,
+      "started_at": "2026-10-30T11:50:51+05:30",
+      "finished_at": "2026-10-30T11:51:39+05:30",
+      "log": "logs/csel_d2c.log"
+    },
+    "csel_zoho": {
+      "name": "CSEL Zoho",
+      "status": "success",
+      "exit_code": 0,
+      "started_at": "2026-10-30T11:51:59+05:30",
+      "finished_at": "2026-10-30T11:53:31+05:30",
+      "log": "logs/csel_zoho.log"
+    },
+    "gold_loan": {
+      "name": "Gold Loan",
+      "status": "success",
+      "exit_code": 0,
+      "started_at": "2026-10-30T11:53:51+05:30",
+      "finished_at": "2026-10-30T11:54:35+05:30",
+      "log": "logs/gold_loan.log"
+    },
+    "hl_falcon": {
+      "name": "HL Falcon",
+      "status": "success",
+      "exit_code": 0,
+      "started_at": "2026-10-30T11:54:55+05:30",
+      "finished_at": "2026-10-30T11:56:25+05:30",
+      "log": "logs/hl_falcon.log"
+    },
+    "lap_los": {
+      "name": "LAP LOS",
+      "status": "success",
+      "exit_code": 0,
+      "started_at": "2026-10-30T11:56:45+05:30",
+      "finished_at": "2026-10-30T11:57:52+05:30",
+      "log": "logs/lap_los.log"
+    },
+    "sbpl_los": {
+      "name": "SBPL LOS",
+      "status": "success",
+      "exit_code": 0,
+      "started_at": "2026-10-30T11:58:12+05:30",
+      "finished_at": "2026-10-30T11:58:32+05:30",
+      "log": "logs/sbpl_los.log"
+    },
+    "sme_los": {
+      "name": "SME LOS",
+      "status": "success",
+      "exit_code": 0,
+      "started_at": "2026-10-30T11:58:52+05:30",
+      "finished_at": "2026-10-30T11:59:25+05:30",
+      "log": "logs/sme_los.log"
+    },
+    "coapplicant_guarantor": {
+      "name": "CoApplicant and Guarantor",
+      "status": "success",
+      "exit_code": 0,
+      "started_at": "2026-10-30T11:59:45+05:30",
+      "finished_at": "2026-10-30T12:00:02+05:30",
+      "log": "logs/coapplicant_guarantor.log"
+    },
+    "vendor_master": {
+      "name": "Vendor Master",
+      "status": "success",
+      "exit_code": 0,
+      "started_at": "2026-10-30T12:00:22+05:30",
+      "finished_at": "2026-10-30T12:00:39+05:30",
+      "log": "logs/vendor_master.log"
+    }
+  }
+}

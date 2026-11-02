@@ -1,0 +1,136 @@
+# ============================================================
+# CUID SYNC SCRIPTS
+# Python ETL | MSSQL | PostgreSQL | ClickHouse | Valkey
+# ============================================================
+
+# Python cache and compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Python environments
+.venv/
+venv/
+env/
+ENV/
+.conda/
+.python-version
+
+# Python build and packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+
+# Environment variables and credentials
+.env
+.env.*
+**/.env
+**/.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.jks
+credentials.json
+secrets.json
+service-account*.json
+
+# Explicit environment variants
+.env copy
+.env copy 2
+.env - uat
+.env - dr
+
+# Logs and runtime outputs
+*.log
+logs/
+log/
+*.out
+*.err
+nohup.out
+*.pid
+
+# Temporary files and caches
+.cache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.nox/
+*.tmp
+*.temp
+*.swp
+*.swo
+
+# Python coverage and test results
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+junit.xml
+
+# Local database files
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+
+# Runtime data exports
+*.csv
+*.tsv
+*.parquet
+*.feather
+*.arrow
+*.dump
+*.sql.gz
+*.zip
+*.tar
+*.tar.gz
+
+# Local JSON outputs and responses
+response.json
+reponse.json
+test.json
+sample.json
+text.json
+
+# Editor files
+.vscode/
+.idea/
+*.code-workspace
+
+# macOS and Windows
+.DS_Store
+._*
+Thumbs.db
+desktop.ini
+
+# Temporary Microsoft Office files
+~$*
+.~lock.*
+
+# Local backup folders
+**/Backup/
+**/backup/
+**/backups/
+
+# Backup file extensions
+*.bak
+*.backup
+*.orig
+
+# Python copied script versions
+* copy.py
+* copy [0-9]*.py
+
+# Generated or copied SQL query versions
+* copy.sql
+* copy [0-9]*.sql
+
+# Keep example configuration templates
+!.env.example
+!**/.env.example
