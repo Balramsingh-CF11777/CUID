@@ -1,4 +1,5 @@
 import os
+import sys
 import logging
 import clickhouse_connect
 import valkey
@@ -350,6 +351,7 @@ except Exception as e:
     logger.exception(
         f"❌ Process Failed : {str(e)}"
     )
+    sys.exit(1)
 
 finally:
 

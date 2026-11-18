@@ -1194,6 +1194,7 @@ def run_etl():
         )
 
         logger.error(traceback.format_exc())
+        sys.exit(1)
 
 # ============================================================
 # MAIN

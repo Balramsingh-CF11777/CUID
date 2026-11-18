@@ -1,4 +1,5 @@
 import os
+import sys
 import pyodbc
 import clickhouse_connect
 import logging
@@ -146,6 +147,8 @@ def run_etl():
     temp_count = 0
     inserted_master = 0
     inserted_repository = 0
+    cursor = None
+    mssql_conn = None
 
     try:
         # =====================================================
@@ -690,11 +693,14 @@ def run_etl():
 
     except Exception as e:
         logger.error(f"❌ ETL FAILED: {e}")
+        sys.exit(1)
 
     finally:
         try:
-            cursor.close()
-            mssql_conn.close()
+            if cursor is not None:
+                cursor.close()
+            if mssql_conn is not None:
+                mssql_conn.close()
         except Exception as e:
             logger.error(f"❌ Connection Failure: {e}")
 

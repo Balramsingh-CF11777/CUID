@@ -1,4 +1,5 @@
 import os
+import sys
 import psycopg2
 import clickhouse_connect
 from dotenv import load_dotenv
@@ -679,6 +680,7 @@ def run_etl():
 
     except Exception as e:
         logger.error(f"❌ ETL FAILED: {e}")
+        sys.exit(1)
 
 # ============================================================
 # RUN

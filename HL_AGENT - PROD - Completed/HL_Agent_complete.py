@@ -1,4 +1,5 @@
 import os
+import sys
 import pyodbc
 import clickhouse_connect
 import logging
@@ -738,6 +739,7 @@ def run_etl():
     except Exception as e:
 
         logger.error(f"❌ ETL FAILED: {e}")
+        sys.exit(1)
 
     finally:
 

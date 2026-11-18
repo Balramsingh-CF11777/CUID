@@ -675,6 +675,7 @@ def run_etl():
 
         logger.error(f"❌ ETL FAILED at line {line_number}: {e}")
         logger.error(traceback.format_exc())
+        sys.exit(1)
 
 
 # ============================================================
